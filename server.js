@@ -23,9 +23,6 @@ connection.connect((err) => {
 // Serve static files (HTML, CSS, JavaScript)
 app.use(express.static('public'));
 
-app.get('/', (req, res) => {
-    res.send('Hello World!')
-})
 
 // Route to fetch data from the database
 app.get('/dataFood', (req, res) => {
