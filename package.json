@@ -3,11 +3,10 @@
     "version": "1.0.0",
     "description": "A project to search for food by nutrition information.",
     "scripts": {
-      "start": "node index.js"
+        "start": "node server.js"
     },
     "dependencies": {
-      "express": "^4.17.1",
-      "mysql": "^2.18.1"
+        "express": "^4.17.1",
+        "mysql": "^2.18.1"
     }
-  }
-  
+}
