@@ -1,6 +1,9 @@
 const mysql = require('mysql');
 const express = require('express');
+const cors = require('cors');
+
 const app = express();
+app.use(cors());
 
 // MySQL database connection configuration
 const connection = mysql.createConnection({
@@ -25,21 +28,28 @@ app.use(express.static('public'));
 
 
 // Route to fetch data from the database
-app.get('/dataFood', (req, res) => {
+app.get('/url', (req, response) => {
     // Perform a query to fetch data
     connection.query('SELECT * FROM meals', (error, results, fields) => {
         if (error) {
             console.error('Error executing query:', error);
-            return res.status(500).send('Error fetching data from database');
+            return response.status(500).send('Error fetching data from database');
         }
 
         // Send the fetched data as JSON response
-        res.json(results);
+        response.json(results);
     });
 });
 
+
+//this is for testing don't mind it
+// app.get("/url", (req, res, next) => {
+//     response.json(["Tony", "Lisa", "Michael", "Ginger", "Food"]);
+// });
+
 // Start the server
-const port = 3000;
+const port = 4000;
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
 });
+

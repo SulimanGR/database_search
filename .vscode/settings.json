@@ -13,5 +13,6 @@
             "database": "foodDatabase",
             "username": "root"
         }
-    ]
+    ],
+    "livePreview.defaultPreviewPath": "/index.html"
 }

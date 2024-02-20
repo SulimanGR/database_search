@@ -1,4 +1,4 @@
-fetch('/dataFood')
+fetch('http://localhost:4000/url')
     .then(response => {
         if (!response.ok) {
             throw new Error('Network response was not ok');
@@ -19,15 +19,30 @@ fetch('/dataFood')
 
             // Create a new h2 element for the item name
             const itemName = document.createElement('h2');
-            itemName.textContent = item.name; // Assuming 'name' is a property of the item
+            itemName.textContent = item.name;
 
-            // Create a new p element for the item description
-            const itemDescription = document.createElement('p');
-            itemDescription.textContent = item.description; // Assuming 'description' is a property of the item
+            // Create a new p element for the item calories
+            const itemCalories = document.createElement('p');
+            itemCalories.textContent = `Calories: ${item.calories}`;
 
-            // Append the item name and description to the item div
+            // Create a new p element for the item carbohydrates
+            const itemCarbohydrates = document.createElement('p');
+            itemCarbohydrates.textContent = `Carbohydrates: ${item.carbohydrates}`;
+
+            // Create a new p element for the item protein
+            const itemProtein = document.createElement('p');
+            itemProtein.textContent = `Protein: ${item.protein}`;
+
+            // Create a new p element for the item source
+            const itemSource = document.createElement('p');
+            itemSource.textContent = `Source: ${item.source}`;
+
+            // Append the item name, calories, carbohydrates, protein, and source to the item div
             itemDiv.appendChild(itemName);
-            itemDiv.appendChild(itemDescription);
+            itemDiv.appendChild(itemCalories);
+            itemDiv.appendChild(itemCarbohydrates);
+            itemDiv.appendChild(itemProtein);
+            itemDiv.appendChild(itemSource);
 
             // Append the item div to the data container
             dataContainer.appendChild(itemDiv);
@@ -36,4 +51,20 @@ fetch('/dataFood')
     .catch(error => {
         console.error('There was a problem with the fetch operation:', error);
     });
+
+
+
+
+// this is for testing don't mind it
+// fetch('http://localhost:5500/url', { mode: 'no-cors' })
+//     .then(response => {
+//         if (!response.ok) {
+//             throw new Error('Network response was not ok');
+//         }
+//         return response.json();
+//     })
+//     .then(data => {
+//         // Process the response data
+//     })
+//     .catch(error => console.error('Error fetching data:', error));
 
