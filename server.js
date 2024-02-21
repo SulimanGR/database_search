@@ -30,7 +30,7 @@ app.use(express.static('public'));
 // Route to fetch data from the database
 app.get('/url', (req, response) => {
     // Perform a query to fetch data
-    connection.query('SELECT * FROM meals', (error, results, fields) => {
+    connection.query('SELECT * FROM meals;', (error, results, fields) => {
         if (error) {
             console.error('Error executing query:', error);
             return response.status(500).send('Error fetching data from database');
