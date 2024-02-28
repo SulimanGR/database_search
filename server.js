@@ -24,28 +24,41 @@ connection.connect((err) => {
 });
 
 // Serve static files (HTML, CSS, JavaScript)
-app.use(express.static('public'));
+app.use(express.static('Async'));
 
 
 // Route to fetch data from the database
-app.get('/url', (req, response) => {
-    // Perform a query to fetch data
-    connection.query('SELECT * FROM meals;', (error, results, fields) => {
+app.get('/data', (req, res) => {
+    const { calories, protein, carbohydrates } = req.query;
+    let query = 'SELECT * FROM meals WHERE 1=1'; // Start with a base query
+
+    // Check if calories parameter is provided
+    if (calories) {
+        query += ` AND calories = ${calories}`;
+    }
+
+    // Check if protein parameter is provided
+    if (protein) {
+        query += ` AND protein = ${protein}`;
+    }
+
+    // Check if carbohydrates parameter is provided
+    if (carbohydrates) {
+        query += ` AND carbohydrates = ${carbohydrates}`;
+    }
+
+    // Perform the modified query to fetch data
+    connection.query(query, (error, results, fields) => {
         if (error) {
             console.error('Error executing query:', error);
-            return response.status(500).send('Error fetching data from database');
+            return res.status(500).send('Error fetching data from database');
         }
 
         // Send the fetched data as JSON response
-        response.json(results);
+        res.json(results);
     });
 });
 
-
-//this is for testing don't mind it
-// app.get("/url", (req, res, next) => {
-//     response.json(["Tony", "Lisa", "Michael", "Ginger", "Food"]);
-// });
 
 // Start the server
 const port = 4000;

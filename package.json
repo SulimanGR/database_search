@@ -4,15 +4,21 @@
     "description": "A project to search for food by nutrition information.",
     "main": "server.js",
     "scripts": {
-        "start": "node server.js"
+        "start": "nodemon server.js"
     },
     "dependencies": {
+        "@auth0/auth0-spa-js": "^2.1.3",
         "cors": "^2.8.5",
+        "dotenv": "^16.4.5",
+        "ejs": "^3.1.9",
         "express": "^4.18.2",
         "express-openid-connect": "^2.17.1",
         "helmet": "^7.1.0",
         "morgan": "^1.10.0",
         "mysql": "^2.18.1",
         "path": "^0.12.7"
+    },
+    "devDependencies": {
+        "nodemon": "^3.1.0"
     }
 }

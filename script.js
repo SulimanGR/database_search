@@ -1,4 +1,4 @@
-fetch('http://localhost:4000/url')
+fetch('http://localhost:4000/data')
     .then(response => {
         if (!response.ok) {
             throw new Error('Network response was not ok');
@@ -51,20 +51,4 @@ fetch('http://localhost:4000/url')
     .catch(error => {
         console.error('There was a problem with the fetch operation:', error);
     });
-
-
-
-
-// this is for testing don't mind it
-// fetch('http://localhost:5500/url', { mode: 'no-cors' })
-//     .then(response => {
-//         if (!response.ok) {
-//             throw new Error('Network response was not ok');
-//         }
-//         return response.json();
-//     })
-//     .then(data => {
-//         // Process the response data
-//     })
-//     .catch(error => console.error('Error fetching data:', error));
 
