@@ -12,27 +12,30 @@
   <h1 class="main-title">Find Your Food Using Pro Food for Nutritional Search!</h1>
 
   <div class="search-bar">
-
     <div>
-      <input type="text" name="text" class="input" pattern="\d+" placeholder="Enter Calories">
+      <input type="text" name="calories" class="input" pattern="\d+" placeholder="Enter Calories">
     </div>
-
     <div>
-      <input type="text" name="text" class="input" pattern="\d+" placeholder="Enter Protein g">
+      <input type="text" name="protein" class="input" pattern="\d+" placeholder="Enter Protein g">
     </div>
-
     <div>
-      <input type="text" name="text" class="input" pattern="\d+" placeholder="Enter Carbohydrats g">
+      <input type="text" name="carbohydrates" class="input" pattern="\d+" placeholder="Enter Carbohydrates g">
     </div>
-
     <button id="search">
       <span>Search</span>
     </button>
-
-
   </div>
 
+
   <div id="dataContainer" class="data-container"></div> <!-- Container for data -->
+
+  <!-- Pagination controls -->
+  <div class="pagination">
+    <button id="prevPage">Previous</button>
+    <span id="currentPage">Page 1</span>
+    <button id="nextPage">Next</button>
+  </div>
+
   <script src="handleSearch.js"></script> <!-- Include your JavaScript file -->
   <script src="script.js"></script>
 </body>

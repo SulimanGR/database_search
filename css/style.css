@@ -151,3 +151,15 @@ button:hover span:after {
   opacity: 1;
   right: 0;
 }
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin: 20px;
+}
+
+#currentPage {
+  color: white;
+}
